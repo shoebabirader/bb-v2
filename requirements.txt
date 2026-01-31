@@ -1,0 +1,9 @@
+python-binance==1.0.19
+pandas==2.0.3
+numpy==1.24.3
+pandas-ta==0.3.14b0
+hypothesis==6.92.1
+pytest==7.4.3
+rich==13.7.0
+pynput==1.7.6
+psutil==5.9.6

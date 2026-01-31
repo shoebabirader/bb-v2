@@ -1,0 +1,75 @@
+{
+  "_comment": "Binance Futures Trading Bot Configuration Template",
+  "_instructions": "Copy this file to config.json and fill in your settings. See README.md for detailed documentation.",
+  
+  "_section_api": "=== API AUTHENTICATION ===",
+  "api_key": "",
+  "_api_key_help": "Your Binance API key. Required for PAPER and LIVE modes. Load from environment variable BINANCE_API_KEY for security.",
+  
+  "api_secret": "",
+  "_api_secret_help": "Your Binance API secret. Required for PAPER and LIVE modes. Load from environment variable BINANCE_API_SECRET for security.",
+  
+  "_section_trading": "=== TRADING PARAMETERS ===",
+  "symbol": "BTCUSDT",
+  "_symbol_help": "Trading pair symbol. Default: BTCUSDT. Must be a valid Binance Futures symbol.",
+  
+  "timeframe_entry": "15m",
+  "_timeframe_entry_help": "Entry signal timeframe. Default: 15m. Valid values: 1m, 3m, 5m, 15m, 30m, 1h, 4h.",
+  
+  "timeframe_filter": "1h",
+  "_timeframe_filter_help": "Trend filter timeframe. Default: 1h. Should be higher than entry timeframe.",
+  
+  "_section_risk": "=== RISK MANAGEMENT ===",
+  "risk_per_trade": 0.01,
+  "_risk_per_trade_help": "Risk per trade as decimal (0.01 = 1%). Default: 0.01. Range: 0.001 to 0.05.",
+  
+  "leverage": 3,
+  "_leverage_help": "Leverage multiplier. Default: 3. Range: 1 to 125. Higher leverage = higher risk.",
+  
+  "stop_loss_atr_multiplier": 2.0,
+  "_stop_loss_atr_multiplier_help": "Initial stop-loss distance in ATR multiples. Default: 2.0. Range: 1.0 to 5.0.",
+  
+  "trailing_stop_atr_multiplier": 1.5,
+  "_trailing_stop_atr_multiplier_help": "Trailing stop distance in ATR multiples. Default: 1.5. Range: 1.0 to 5.0.",
+  
+  "_section_indicators": "=== TECHNICAL INDICATORS ===",
+  "atr_period": 14,
+  "_atr_period_help": "ATR calculation period. Default: 14. Range: 5 to 50.",
+  
+  "adx_period": 14,
+  "_adx_period_help": "ADX calculation period. Default: 14. Range: 5 to 50.",
+  
+  "adx_threshold": 20.0,
+  "_adx_threshold_help": "Minimum ADX for trade entry. Default: 20.0. Range: 10.0 to 50.0.",
+  
+  "rvol_period": 20,
+  "_rvol_period_help": "RVOL calculation period. Default: 20. Range: 10 to 100.",
+  
+  "rvol_threshold": 1.2,
+  "_rvol_threshold_help": "Minimum RVOL for trade entry. Default: 1.2. Range: 1.0 to 3.0.",
+  
+  "_section_backtest": "=== BACKTEST PARAMETERS ===",
+  "backtest_days": 90,
+  "_backtest_days_help": "Days of historical data for backtesting. Default: 90. Range: 7 to 365.",
+  
+  "trading_fee": 0.0005,
+  "_trading_fee_help": "Trading fee as decimal (0.0005 = 0.05%). Default: 0.0005. Binance Futures maker/taker fee.",
+  
+  "slippage": 0.0002,
+  "_slippage_help": "Slippage as decimal (0.0002 = 0.02%). Default: 0.0002. Simulates market impact.",
+  
+  "_section_system": "=== SYSTEM PARAMETERS ===",
+  "run_mode": "BACKTEST",
+  "_run_mode_help": "Operational mode. Valid values: BACKTEST (historical simulation), PAPER (live data, simulated execution), LIVE (real trading with real money).",
+  
+  "log_file": "binance_results.json",
+  "_log_file_help": "Performance metrics output file. Default: binance_results.json.",
+  
+  "_section_safety": "=== SAFETY NOTES ===",
+  "_safety_1": "⚠️  ALWAYS test with BACKTEST mode first",
+  "_safety_2": "⚠️  Use PAPER mode to verify strategy with live data before risking real money",
+  "_safety_3": "⚠️  LIVE mode trades with REAL MONEY - use at your own risk",
+  "_safety_4": "⚠️  Press ESC at any time to trigger panic close (closes all positions immediately)",
+  "_safety_5": "⚠️  Never share your API keys - store them in environment variables",
+  "_safety_6": "⚠️  Use isolated margin mode to limit risk per position"
+}
