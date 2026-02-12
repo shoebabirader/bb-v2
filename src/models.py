@@ -1,7 +1,7 @@
 """Data models and core types for Binance Futures Trading Bot."""
 
 from dataclasses import dataclass, field
-from typing import Optional, Dict
+from typing import Optional, Dict, List
 
 
 @dataclass
