@@ -10,7 +10,12 @@ import signal
 import sys
 from typing import Optional, List, Dict
 from binance.client import Client
-from pynput import keyboard
+try:
+    from pynput import keyboard
+    KEYBOARD_AVAILABLE = True
+except ImportError:
+    KEYBOARD_AVAILABLE = False
+    logger.warning("pynput not available - keyboard listener disabled")
 
 from src.config import Config
 from src.data_manager import DataManager
@@ -881,6 +886,10 @@ class TradingBot:
     
     def _start_keyboard_listener(self):
         """Start keyboard listener for panic close (ESC key)."""
+        if not KEYBOARD_AVAILABLE:
+            logger.info("Keyboard listener not available (headless mode)")
+            return
+            
         def on_press(key):
             try:
                 if key == keyboard.Key.esc:
