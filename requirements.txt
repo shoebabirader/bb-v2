@@ -1,6 +1,6 @@
 python-binance==1.0.19
-pandas==2.0.3
-numpy==1.24.3
+pandas>=2.2.0
+numpy>=1.26.0
 pandas-ta==0.3.14b0
 hypothesis==6.92.1
 pytest==7.4.3
