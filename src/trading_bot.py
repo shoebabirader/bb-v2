@@ -10,12 +10,13 @@ import signal
 import sys
 from typing import Optional, List, Dict
 from binance.client import Client
+
+# Try to import keyboard listener (not available in headless environments)
 try:
     from pynput import keyboard
     KEYBOARD_AVAILABLE = True
 except ImportError:
     KEYBOARD_AVAILABLE = False
-    logger.warning("pynput not available - keyboard listener disabled")
 
 from src.config import Config
 from src.data_manager import DataManager
@@ -43,6 +44,9 @@ logger = logging.getLogger(__name__)
 logger.info("=" * 80)
 logger.info("TRADING BOT STARTING")
 logger.info("=" * 80)
+
+if not KEYBOARD_AVAILABLE:
+    logger.warning("pynput not available - keyboard listener disabled (headless mode)")
 
 
 class TradingBot:
